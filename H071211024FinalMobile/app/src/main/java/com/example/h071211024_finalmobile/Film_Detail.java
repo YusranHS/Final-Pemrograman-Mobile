@@ -20,7 +20,7 @@ public class Film_Detail extends AppCompatActivity {
 
     private DatabaseHelper dbHelper;
     private ImageButton backButton, favoriteButton;
-    private ImageView backdropImageView, posterImageView, typeImageView;
+    private ImageView backdropImageView, posterImageView, typeImageView, filledFavorite;
     private TextView titleTextView, releaseDateTextView, ratingTextView, synopsisTextView;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +30,14 @@ public class Film_Detail extends AppCompatActivity {
         backdropImageView = findViewById(R.id.iv_backdrop);
         backButton = findViewById(R.id.btn_back);
         favoriteButton = findViewById(R.id.btn_favorite);
+        filledFavorite = findViewById(R.id.btn_favoritefilled);
         posterImageView = findViewById(R.id.iv_poster);
         titleTextView = findViewById(R.id.tv_title);
         releaseDateTextView = findViewById(R.id.tv_release_date);
         ratingTextView = findViewById(R.id.tv_rating);
         typeImageView = findViewById(R.id.iv_type);
         synopsisTextView = findViewById(R.id.tv_synopsis);
+
         dbHelper = new DatabaseHelper(this);
 
         Intent intent = getIntent();
@@ -53,6 +55,12 @@ public class Film_Detail extends AppCompatActivity {
                     .into(backdropImageView);
             synopsisTextView.setText(movie.getOverview());
 
+            if (!dbHelper.isMovieInFavorites(movie.getTitle())) {
+                filledFavorite.setVisibility(View.INVISIBLE);
+            } else {
+                filledFavorite.setVisibility(View.VISIBLE);
+            }
+
             backButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -65,8 +73,10 @@ public class Film_Detail extends AppCompatActivity {
                 public void onClick(View v) {
                     if (!dbHelper.isMovieInFavorites(movie.getTitle())) {
                         addMovieToFavorites(movie.getId(), movie.getOverview(), posterUrl, movie.getReleaseDate(), movie.getTitle(), movie.getVoteAverage(), backdropUrl);
+                        filledFavorite.setVisibility(View.VISIBLE);
                     } else {
                         deleteMovieToFavorites(movie.getTitle());
+                        filledFavorite.setVisibility(View.INVISIBLE);
                     }
                 }
             });
@@ -98,8 +108,10 @@ public class Film_Detail extends AppCompatActivity {
                 public void onClick(View v) {
                     if (!dbHelper.isMovieInFavorites(show.getName())) {
                         addMovieToFavorites(show.getId(), show.getOverview(), posterUrl, show.getName(), show.getName(), show.getVoteAverage(), backdropUrl);
+                        filledFavorite.setVisibility(View.VISIBLE);
                     } else {
                         deleteMovieToFavorites(show.getName());
+                        filledFavorite.setVisibility(View.INVISIBLE);
                     }
                 }
             });
@@ -130,8 +142,10 @@ public class Film_Detail extends AppCompatActivity {
                 public void onClick(View v) {
                     if (!dbHelper.isMovieInFavorites(favorite.getTitle())) {
                         addMovieToFavorites(favorite.getId(), favorite.getOverview(), posterUrl, favorite.getTitle(), favorite.getTitle(), favorite.getVoteAverage(), backdropUrl);
+                        filledFavorite.setVisibility(View.VISIBLE);
                     } else {
                         deleteMovieToFavorites(favorite.getTitle());
+                        filledFavorite.setVisibility(View.INVISIBLE);
                     }
                 }
             });
@@ -142,7 +156,7 @@ public class Film_Detail extends AppCompatActivity {
         Movie movie = new Movie(id, overview, posterUrl, releaseDate, title, voteAverage, backdropUrl);
         long result = dbHelper.insertMovie(movie);
         if (result != -1) {
-            Toast.makeText(this, "Movie has been added favorite", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Movie has been added to favorite", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Failed to favorite movie", Toast.LENGTH_SHORT).show();
         }
@@ -150,9 +164,9 @@ public class Film_Detail extends AppCompatActivity {
     private void deleteMovieToFavorites(String nama) {
         long result = dbHelper.deleteMovie(nama);
         if (result != -1) {
-            Toast.makeText(this, "Movie Deleted from favorite", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Movie has been removed from favorite", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Failed to delete movie", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Failed to remove movie", Toast.LENGTH_SHORT).show();
         }
     }
 }

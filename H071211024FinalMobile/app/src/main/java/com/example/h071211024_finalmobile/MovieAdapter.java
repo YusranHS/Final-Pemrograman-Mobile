@@ -20,7 +20,6 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
     private List<Movie> movies;
     private final ArrayList<MovieResponse> movie = new ArrayList<>();
     private ClickListener clickListener;
-
     public MovieAdapter(List<Movie> movies) {
         this.movies = movies;
     }

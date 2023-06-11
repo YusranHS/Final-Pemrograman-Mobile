@@ -28,6 +28,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TvShowFragment extends Fragment {
+
     private static final String BASE_URL = "https://api.themoviedb.org/3/";
     private static final String API_KEY = "dad1cd55d3f6d09536f1c6bde1fe8d07";
     ProgressBar progressBar;
@@ -37,7 +38,6 @@ public class TvShowFragment extends Fragment {
     private TvShowAdapter tvAdapter;
 
     public TvShowFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -78,7 +78,6 @@ public class TvShowFragment extends Fragment {
             public void onFailure(Call<TvResponse> call, Throwable t) {
             }
         });
-
         return view;
     }
 

@@ -18,7 +18,6 @@ public class DatabaseContract {
         public static final String COLUMN_VOTE_AVERAGE = "vote_average";
         public static final String COLUMN_GENRE_IDS = "genre_ids";
 
-        // SQL statement to create the movies table
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY," +
@@ -30,7 +29,6 @@ public class DatabaseContract {
                         COLUMN_VOTE_AVERAGE + " REAL," +
                         COLUMN_GENRE_IDS + " TEXT)";
 
-        // SQL statement to drop the movies table
         public static final String SQL_DROP_TABLE =
                 "DROP TABLE IF EXISTS " + TABLE_NAME;
     }

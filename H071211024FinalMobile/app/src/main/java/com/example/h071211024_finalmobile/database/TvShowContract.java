@@ -3,11 +3,10 @@ package com.example.h071211024_finalmobile.database;
 import android.provider.BaseColumns;
 
 public class TvShowContract {
-    // Private constructor to prevent instantiation
+
     private TvShowContract() {
     }
 
-    // TvShow table definition
     public static class TvShowEntry implements BaseColumns {
         public static final String TABLE_NAME = "movies";
         public static final String COLUMN_TITLE = "title";
@@ -18,7 +17,6 @@ public class TvShowContract {
         public static final String COLUMN_VOTE_AVERAGE = "vote_average";
         public static final String COLUMN_GENRE_IDS = "genre_ids";
 
-        // SQL statement to create the movies table
         public static final String SQL_CREATE_TABLE =
                 "CREATE TABLE " + TABLE_NAME + " (" +
                         _ID + " INTEGER PRIMARY KEY," +

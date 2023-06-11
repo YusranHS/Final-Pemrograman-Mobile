@@ -34,7 +34,7 @@ public class FavoriteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_favorites, container, false);
     }
     @Override
@@ -73,7 +73,6 @@ public class FavoriteFragment extends Fragment {
                 String backdropUrl = (backdropUrlColumnIndex != -1) ? cursor.getString(backdropUrlColumnIndex) : null;
                 double voteAverage = (voteAverageColumnIndex != -1) ? cursor.getDouble(voteAverageColumnIndex) : 0.0;
 
-                // Create a Movie object and add it to the list
                 Favorite favorite = new Favorite(id, overview, posterUrl, releaseDate, title, voteAverage, backdropUrl);
                 favoriteList.add(favorite);
             } while (cursor.moveToNext());

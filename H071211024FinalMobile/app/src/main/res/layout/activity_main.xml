@@ -22,7 +22,7 @@
         <ImageView
             android:id="@+id/movie_iv"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/light_movie" />
 
@@ -34,7 +34,7 @@
         <ImageView
             android:id="@+id/series_iv"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/light_tvshow" />
 
@@ -46,7 +46,7 @@
         <ImageView
             android:id="@+id/favorite_iv"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/light_heart" />
 

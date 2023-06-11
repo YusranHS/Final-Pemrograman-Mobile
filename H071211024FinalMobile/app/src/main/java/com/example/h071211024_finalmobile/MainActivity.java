@@ -9,10 +9,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.h071211024_finalmobile.R;
 
 public class MainActivity extends AppCompatActivity {
+
     ImageView movie_iv, series_iv, favorites_iv;
 
     @Override
@@ -35,14 +37,13 @@ public class MainActivity extends AppCompatActivity {
             Drawable drawable = movie_iv.getDrawable();
             drawable.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
             movie_iv.setImageDrawable(drawable);
-            // Wait for 200 milliseconds
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     drawable.clearColorFilter();
                     movie_iv.setImageDrawable(drawable);
                 }
-            }, 200);
+            }, 250);
             MovieFragment movieFragment = new MovieFragment();
             fragmentManager
                     .beginTransaction()
@@ -56,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             Drawable drawable = series_iv.getDrawable();
             drawable.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
             series_iv.setImageDrawable(drawable);
-            // Wait for 200 milliseconds
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
             Drawable drawable = favorites_iv.getDrawable();
             drawable.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
             favorites_iv.setImageDrawable(drawable);
-            // Wait for 200 milliseconds
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

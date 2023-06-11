@@ -37,7 +37,7 @@ public class MovieFragment extends Fragment {
     private MovieAdapter movieAdapter;
 
     public MovieFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -77,12 +77,10 @@ public class MovieFragment extends Fragment {
                     showAlert();
                 }
             }
-
             @Override
             public void onFailure(Call<MovieResponse> call, Throwable t) {
             }
         });
-
         return view;
     }
 

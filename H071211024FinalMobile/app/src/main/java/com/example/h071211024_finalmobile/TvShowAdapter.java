@@ -16,10 +16,9 @@ import com.example.h071211024_finalmobile.data.model.TvResponse;
 
 import java.util.List;
 public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvViewHolder> {
-    private List<Tv> tvShows;
-    
-    private MovieAdapter.ClickListener clickListener;
 
+    private List<Tv> tvShows;
+    private MovieAdapter.ClickListener clickListener;
     public TvShowAdapter(List<Tv> tvShows) {
         this.tvShows = tvShows;
     }
@@ -31,6 +30,7 @@ public class TvShowAdapter extends RecyclerView.Adapter<TvShowAdapter.TvViewHold
     public void setClickListener(MovieAdapter.ClickListener clickListener) {
         this.clickListener = clickListener;
     }
+
     @NonNull
     @Override
     public TvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

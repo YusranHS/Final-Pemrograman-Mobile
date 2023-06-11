@@ -5,7 +5,7 @@
 //
 //public class ApiConfig {
 //    private static final String BASE_URL = "https://api.themoviedb.org/";
-//    private static final String API_KEY = "dad1cd55d3f6d09536f1c6bde1fe8d07";
+//    private static final String API_KEY = "a9e48b0b228099847dc7187ed9bf76b3";
 //
 //    public static  getApiService() {
 //        Retrofit retrofit = new Retrofit.Builder()
